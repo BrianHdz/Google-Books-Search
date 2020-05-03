@@ -1,0 +1,16 @@
+
+.formStyling {
+     justify-content: center;
+}
+
+
+/* 
+form::before {
+     justify-content: center;
+
+} */
+
+.btn {
+    font-weight: bold;
+    font: white;
+}

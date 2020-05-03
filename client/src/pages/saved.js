@@ -16,7 +16,7 @@ export default function Search() {
                 <h2>View Your Saved Books</h2>
             </div>
             <p className="App-intro">
-                To get started, edit add more Saved Books code.
+            You found the secret message! Nothing gets by you.
             </p>
         </div>
     );
