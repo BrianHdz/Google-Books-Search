@@ -9,6 +9,7 @@ import Jumbotron from "../components/Jumbotron"
 //import { Col } from 'react-bootstrap';
 import { Col, Row, Container } from "../components/Grid";
 import { Input, TextArea, FormBtn } from "../components/SearchBar";
+import { BoxResults } from "../components/BoxResults";
 
 // import API from "../../utils/api";
 
@@ -45,6 +46,31 @@ export default function Search() {
 
                     </Col>
                     <Col size="md-3 sm-12"></Col>
+                </Row>
+
+
+
+                <Row>
+                    <Col size="md-8 sm-12">
+                        {/* {books.length ? (
+                            <List>
+                                {books.map(book => (
+                                    <ListItem key={book._id}>
+                                        <Link to={"/books/" + book._id}>
+                                            <strong>
+                                                {book.title} by {book.author}
+                                            </strong>
+                                        </Link>
+                                        <DeleteBtn onClick={() => deleteBook(book._id)} />
+                                    </ListItem>
+                                ))}
+                            </List> */}
+                            <BoxResults />
+                            //   If there are no results to display show this message below on screen
+                        ) : (
+                                <h3>No Results to Display</h3>
+                            )}
+                    </Col>
                 </Row>
 
             </Container>
