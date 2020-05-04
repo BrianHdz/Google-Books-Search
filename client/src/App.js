@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Search from "./pages/search";
 import Saved from "./pages/saved";
+import NoMatch from "./pages/NoMatch";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
@@ -24,6 +26,8 @@ function App() {
             <Route exact path={"/saved"}>
               <Saved />
             </Route>
+
+            <Route exact path="/noMatch" component={NoMatch} />
 
           </Switch>
         </div>

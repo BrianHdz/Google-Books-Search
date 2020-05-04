@@ -1,6 +1,47 @@
-//import React from "react";
-//import "./style.css";
+//import React, { Component, useState } from "react";
+//import { Link } from "react-router-dom";
+// import { Col, Row, Container } from "../Grid";
+// import "./style.css";
 
+// const BoxResults = () => {
+//   return (
+
+//     <div className="d-flex p-2 col-example">
+
+//       <Row><Col size="md-12 sm-12" className="justify-content-center">I'm a flexbox container!</Col></Row>
+      
+//       <Row>
+//         <figure className="figure">
+//           <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" className="figure-img img-fluid z-depth-1"
+//             alt="" style={{ width: '400px' }} />
+          
+//           <figcaption className="figure-caption">
+//             A caption for the above image.
+//           </figcaption>
+        
+//         </figure>
+//       </Row>
+//     </div>
+
+//   );
+// }
+
+// export default BoxResults;
+
+
+
+//-------------------------------TESTING
+ 
+// Jumbotron syntax
+//       <div
+//         style={{ height: 100, clear: "both", paddingTop: 120, textAlign: "center" }}
+//         className="jumbotron"
+//       >
+//         {children}
+//       </div> 
+
+
+      //-----------------------------------------------------
 // This file exports both the List and ListItem components
 
 // export function BoxWrapper()
@@ -16,41 +57,4 @@
 // export function ListItem({ children }) {
 //   return <li className="list-group-item">{children}</li>;
 // }
-
-
-import React, { useState } from 'react';
-
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Toast from 'react-bootstrap/Toast';
-import Container from 'react-bootstrap/Container';
-
-import './App.css';
-
-const ExampleToast = ({ children }) => {
-  const [show, toggleShow] = useState(true);
-
-  return (
-    <Toast show={show} onClose={() => toggleShow(!show)}>
-      <Toast.Header>
-        <strong className="mr-auto">React-Bootstrap</strong>
-      </Toast.Header>
-      <Toast.Body>{children}</Toast.Body>
-    </Toast>
-  );
-};
-
-const BoxResults = () => (
-  <Container className="p-3">
-    <Jumbotron>
-      <h1 className="header">Welcome To React-Bootstrap</h1>
-      <ExampleToast>
-        We now have Toasts
-        <span role="img" aria-label="tada">
-          🎉
-        </span>
-      </ExampleToast>
-    </Jumbotron>
-  </Container>
-);
-
-export default BoxResults;
+//-------------------------------------------------------
