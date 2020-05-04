@@ -16,7 +16,7 @@ export default function Search() {
     const [formObject, setFormObject] = useState({});
     const [inputValue, setInputValue] = useState("");
     const [search, setSearch] = useState("");
-    // const [results, setResults] = useState([]);
+    const [results, setResults] = useState([]);
 
     const handleSearch = (event) => {
         event.preventDefault();
@@ -24,38 +24,23 @@ export default function Search() {
         var userData = { search: formObject }
         console.log(userData)
 
-        
+
         // Run call to API for book info.
         API.searchBooks(userData.search)
             .then(function (res) {
                 console.log(res.data.items)
                 // Error handling
                 if (res.data.items.length === 0) {
-
-                    console.log("We didn't find anything");
-                } let results = res.data.items[0].volumeInfo
-                console.log(results)
+                    
+                    console.log("We didn't find anything.");
+                }
                 // Successful results. Show 10 books.
-                // setResults = () => {
-                //     let results = this.state.results.sort((a, b) => (a.name > b.name) ? 1 : -1)
-                //     this.setState({ results });
-                // }
+                console.log(res.data.items[0].volumeInfo)
                 // This is the Title of the first Book in the search.
                 console.log(res.data.items[0].volumeInfo.title)
             })
             .catch((err) => console.log(err));
-            
     }
-
-    
-                //console.log(results)
-
-    // const handleSave = (bookData) => {
-    //     SavedAPI.saveBook(bookData)
-    //       .then()
-    //       .catch((err) => console.log(err));
-    //   };
-
 
 
     return (
@@ -75,13 +60,18 @@ export default function Search() {
 
                         <form
                             className="formStyling"
-                            noValidate onSubmit={handleSearch}>
+                            noValidate
+                        onSubmit={handleSearch}
+                        >
                             <TextArea
                                 name="title"
                                 placeholder="Title (required)"
                                 onChange={(e) => setFormObject(e.target.value)}
+                                // handleInputChange={handleInputChange}
+                                // handleClick={handleClick}
+
                             />
-                            <FormBtn className="submit">
+                            <FormBtn >
                             </FormBtn>
                         </form>
 
@@ -101,12 +91,13 @@ export default function Search() {
                     <Col size="md-8 sm-12">
 
                         {/* {this.state.friends.map(friend => ( */}
-                            {/* <BoxResults
-                                name={results.title}
-                                age={results.authors}
-                                occupation={results.description}
-                                location={results.location}
-                            /> */}
+                        <BoxResults
+                            title={results.title}
+                            authors={results.authors}
+                            description={results.description}
+                            link={results.link}
+                            coverArt={results.image}
+                        />
                         {/* ))} */}
 
                         {/* {this.state.result.map(friend => (
@@ -136,6 +127,7 @@ export default function Search() {
 
     );
 }
+
 
 
 
