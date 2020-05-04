@@ -1,32 +1,39 @@
-//import React, { Component, useState } from "react";
-//import { Link } from "react-router-dom";
-// import { Col, Row, Container } from "../Grid";
-// import "./style.css";
+import React from "react";
+import "./style.css";
 
-// const BoxResults = () => {
-//   return (
+// Using the datalist element we can create autofill suggestions based on the props.breeds array
 
-//     <div className="d-flex p-2 col-example">
 
-//       <Row><Col size="md-12 sm-12" className="justify-content-center">I'm a flexbox container!</Col></Row>
+function BoxResults(props) {
+  // console.log(props)
+  return (
+    <div className="card">
       
-//       <Row>
-//         <figure className="figure">
-//           <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" className="figure-img img-fluid z-depth-1"
-//             alt="" style={{ width: '400px' }} />
-          
-//           <figcaption className="figure-caption">
-//             A caption for the above image.
-//           </figcaption>
-        
-//         </figure>
-//       </Row>
-//     </div>
+      <div className="content">
+        <ul>
+          <li>
+            <strong>Title:</strong> {props.title}
+          </li>
+          <li>
+            <strong>Author:</strong> {props.Author}
+          </li>
+          <li>
+            <strong>Description:</strong> {props.description}
+          </li>
+          <li>
+            <strong>Link:</strong> {props.link}
+          </li>
+          <li>
+            <strong>Cover Art:</strong> {props.image}
+          </li>
+        </ul>  
+      </div>
+      
+    </div>
+  );
+}
 
-//   );
-// }
-
-// export default BoxResults;
+export default BoxResults;
 
 
 

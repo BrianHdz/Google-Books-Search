@@ -5,7 +5,7 @@ import "../App.css";
 import Navbar from "../components/Navbar";
 import { Col, Row, Container } from "../components/Grid";
 import { TextArea, FormBtn } from "../components/SearchBar";
-//import BoxResults from '../components/BoxResults';
+import BoxResults from '../components/BoxResults';
 import Jumbotron from '../components/Jumbotron';
 
 import API from "../utils/searchApi";
@@ -16,45 +16,45 @@ export default function Search() {
     const [formObject, setFormObject] = useState({});
     const [inputValue, setInputValue] = useState("");
     const [search, setSearch] = useState("");
-    const [results, setResults] = useState([]);
+    // const [results, setResults] = useState([]);
 
     const handleSearch = (event) => {
         event.preventDefault();
 
-        var userData = {search: formObject}
+        var userData = { search: formObject }
         console.log(userData)
 
+        
         // Run call to API for book info.
         API.searchBooks(userData.search)
             .then(function (res) {
                 console.log(res.data.items)
                 // Error handling
-                if (res.data.items === 0) {
-                     setResults([]);
-                     throw new Error("We didn't find anything");
-                }
+                if (res.data.items.length === 0) {
+
+                    console.log("We didn't find anything");
+                } let results = res.data.items[0].volumeInfo
+                console.log(results)
                 // Successful results. Show 10 books.
-                setResults(res.data.items);
+                // setResults = () => {
+                //     let results = this.state.results.sort((a, b) => (a.name > b.name) ? 1 : -1)
+                //     this.setState({ results });
+                // }
                 // This is the Title of the first Book in the search.
                 console.log(res.data.items[0].volumeInfo.title)
             })
             .catch((err) => console.log(err));
+            
     }
 
+    
+                //console.log(results)
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    }
-
-    const handleClick = (bookData) => {
-        savedAPI.saveBook(bookData)
-            .then()
-            .catch((err) => console.log(err));
-    }
-
-    // const handleClick = () => {
-    //     setSearch(inputValue);
-    // };
+    // const handleSave = (bookData) => {
+    //     SavedAPI.saveBook(bookData)
+    //       .then()
+    //       .catch((err) => console.log(err));
+    //   };
 
 
 
@@ -73,12 +73,14 @@ export default function Search() {
                     <Col size="md-3 sm-12"></Col>
                     <Col size="md-6 sm-12" className="justify-content-center">
 
-                        <form className="formStyling" noValidate onSubmit={handleSearch}>
+                        <form
+                            className="formStyling"
+                            noValidate onSubmit={handleSearch}>
                             <TextArea
                                 name="title"
                                 placeholder="Title (required)"
                                 onChange={(e) => setFormObject(e.target.value)}
-                                />
+                            />
                             <FormBtn className="submit">
                             </FormBtn>
                         </form>
@@ -95,13 +97,39 @@ export default function Search() {
 
                 <Row>
                     <Col size="md-2 sm-12"></Col>
-                    <Col size="md-8 sm-12">
-                        {/* <BoxResults /> */}
-                        <Jumbotron />
 
+                    <Col size="md-8 sm-12">
+
+                        {/* {this.state.friends.map(friend => ( */}
+                            {/* <BoxResults
+                                name={results.title}
+                                age={results.authors}
+                                occupation={results.description}
+                                location={results.location}
+                            /> */}
+                        {/* ))} */}
+
+                        {/* {this.state.result.map(friend => (
+                            <Jumbotron sectionTitle="Result"
+                            key={result.id}
+                            title={result.volumeInfo.title}
+                            authors={result.volumeInfo.authors}
+                            description={result.volumeInfo.description}
+                            link={result.volumeInfo.infoLink}
+                            image={
+                                result.volumeInfo.imageLinks === undefined
+                                    ? "https://via.placeholder.com/64x64.png?text=No+Image+Found"
+                                    : result.volumeInfo.imageLinks.thumbnail
+                            }
+                            handleSave={handleSave}
+                            />
+                        ))} */}
                     </Col>
+
                     <Col size="md-2 sm-12"></Col>
                 </Row>
+
+
 
             </Container>
         </div>
