@@ -4,6 +4,6 @@ const searchRoutes = require("./search");
 
 // Book routes
 router.use("/saved", savedRoutes);
-router.use("/search", searchRoutes);
+// router.use("/search", searchRoutes);
 
 module.exports = router;

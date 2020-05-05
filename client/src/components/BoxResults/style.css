@@ -1,0 +1,9 @@
+p {
+    font-size: 12px
+}
+
+.img-fluid {
+    max-width: 180%;
+    padding-top: 20px;
+    border-radius: 10px;
+}
