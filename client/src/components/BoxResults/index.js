@@ -24,7 +24,7 @@ class BoxResults extends Component {
         getBooks => this.setState({
           getBooks: this.state.getBooks.concat([
             getBooks
-          ]) 
+          ])
         }))
       .catch((err) => console.log(err))
   }
@@ -32,40 +32,52 @@ class BoxResults extends Component {
   render() {
     return (
       <div>
+
         {!this.props.books.length ? (
-          <h4 className="text-center">No books by that name</h4>
+          <h4 className="text-center">Search for a book above</h4>
         ) : (
             <div>
               {this.props.books.map(result => (
-                <div className="card mb-3" key={result._id}>
+                <div className="card mb-3"
+                  key={result._id}>
                   <div className="row">
+
                     <div className="col-md-2">
-                      <img alt={result.title} className="img-fluid" src={result.image} />
+                      <img alt={result.title}
+                        className="img-fluid" src={result.image} />
                     </div>
-                    <div className="col-md-10">
+
+
+
+                    <div className="col-md-7">
                       <div className="card-body">
                         <h5 className="card-title">
-                          Title: {result.title} 
+                          Title: {result.title}
                           Author: {result.authors}
-                          </h5>
+                        </h5>
                         <p className="card-text">{result.description}</p>
-                        <div>
-                          <a href={result.link} 
-                          className="btn btn-primary mt-3" 
-                          target="_blank" >View<i class="fas fa-shipping-fast"></i></a>
-                          <button 
-                          onClick={() => this.handleSave(result)} 
-                          className="btn btn-dark mt-3 ml-3" >
-                            Save <i class="far fa-save"> Book</i>
-                          </button>
-                        </div>
                       </div>
                     </div>
+
+                    <div>
+                      <a href={result.link}
+                        className="btn btn-primary mt-3"
+                        target="_blank" >View<i class="fas fa-shipping-fast"></i></a>
+                    </div>
+                    <div>
+                      <button
+                        onClick={() => this.handleSave(result)}
+                        className="btn btn-dark mt-3 ml-3" >
+                        Save <i class="far fa-save"> Book</i>
+                      </button>
+                    </div>
+
                   </div>
                 </div>
               ))}
             </div>
           )}
+
       </div>
     );
   }
